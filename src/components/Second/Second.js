@@ -6,24 +6,36 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { Context } from '../Context/Context'
 
+import { AiOutlineInstagram } from 'react-icons/ai'
+import { ImFacebook } from 'react-icons/im'
+import { BsTwitter } from 'react-icons/bs'
+
+
 
 const Second = () => {
 
-    const [first, setFirst] = useState(false)
-    const [second, setSecond] = useState(false)
-    const [third, setThird] = useState(false)
-    const [fourth, setFourth] = useState(false)
-    const [five, setFive] = useState(false)
+    const [first, setFirst] = useState(true)
+    const [second, setSecond] = useState(true)
+    const [third, setThird] = useState(true)
+    const [fourth, setFourth] = useState(true)
+    const [five, setFive] = useState(true)
 
 
-    const {  secondVisible  , setVisible} = useContext(Context)
+    // subbbbbbbs
+    const [subOne, setSubOne] = useState(false)
+    const [subTwo, setSubTwo] = useState(false)
+    const [subThree, setSubThree] = useState(false)
+    const [subFour, setSubFour] = useState(false)
+
+
+    const { secondVisible, setVisible } = useContext(Context)
     console.log(secondVisible);
 
     return (
-        <div className={secondVisible?'second--navbar active' : 'second--navbar'}>
+        <div className={secondVisible ? 'second--navbar active' : 'second--navbar'}>
             <div className='close--button--area'>
                 <div className='close--button'>
-                    <FaTimes onClick={()=>{setVisible(false)}}/>
+                    <FaTimes onClick={() => { setVisible(false) }} />
                 </div>
             </div>
 
@@ -45,6 +57,8 @@ const Second = () => {
                             <li>Women's New Arrivals</li>
                         </div>
                     </li>
+
+
                     <li className='second--nav--item dropdown'>
                         <div className='dropdown--box'>
                             <div><a>MENS</a></div>
@@ -55,29 +69,97 @@ const Second = () => {
                         </div>
 
                         <div className={!second ? 'dropdown--submenu' : 'dropdown--submenu hidden'}>
-                            <ul>Shop by style</ul>
-                            <li>Shop by perfomance</li>
+                            <div className='dropdown--wrap'>
+                                <span>Shop by style</span>
+                                <span
+                                    className='sub-submenu--arrow'
+                                    onClick={() => {
+                                        setSubOne(!subOne)
+                                    }}
+                                ><MdKeyboardArrowDown className={subOne ? ' rotate' : ""} />
+                                </span>
+
+
+                                <div className={subOne ? 'sub active' : 'sub'}>
+                                    <li>Jackets</li>
+                                    <li>Vests</li>
+                                    <li>Layers</li>
+                                    <li>Bottoms</li>
+                                    <li>Accessories</li>
+                                </div>
+
+
+                            </div>
+                            <li>
+                                <span>Shop by perfomance</span><span className='sub-submenu--arrow'
+                                    onClick={() => {
+                                        setSubTwo(!subTwo)
+                                    }}><MdKeyboardArrowDown className={subTwo ? ' rotate' : ""} /></span>
+
+
+                                <div className={subTwo ? 'sub active' : 'sub'}>
+                                    <li>Cold Weather</li>
+                                    <li>Tech Layers</li>
+                                    <li>Windproof</li>
+                                    <li>Waterproof</li>
+                                    <li>Wicking</li>
+                                </div>
+                            </li>
                             <li>Best sellers</li>
                             <li>Big & tall</li>
                         </div>
                     </li>
+
+
                     <li className='second--nav--item dropdown'>
                         <div className='dropdown--box'>
                             <div><a>WOMENS</a></div>
                             <div
                                 className='icon'
-                                 onClick={() => setThird(!third)}><MdKeyboardArrowDown className={third ? ' rotate' : ""} /></div>
+                                onClick={() => setThird(!third)}><MdKeyboardArrowDown className={third ? ' rotate' : ""} /></div>
                         </div>
                         <div className={!third ? 'dropdown--submenu' : 'dropdown--submenu hidden'}>
-                            <ul>Shop by style</ul>
-                            <li>Shop by perfomance</li>
+
+                            <div>
+                                <span>Shop by style</span>
+                                <span
+                                    className='sub-submenu--arrow'
+                                    onClick={() => {
+                                        setSubThree(!subThree)
+                                    }}
+                                ><MdKeyboardArrowDown className={subThree ? ' rotate' : ""} />
+                                </span>
+                                <div className={subThree ? 'sub active' : 'sub'}>
+                                    <li>Jackets</li>
+                                    <li>Vests</li>
+                                    <li>Layers</li>
+                                    <li>Bottoms</li>
+                                    <li>Accessories</li>
+                                </div>
+                            </div>
+                            <li><span>Shop by perfomance</span><span
+                                className='sub-submenu--arrow'
+                                onClick={() => {
+                                    setSubFour(!subFour)
+                                }}
+                            ><MdKeyboardArrowDown className={subFour ? ' rotate' : ""} /></span>
+
+
+                                <div className={subFour ? 'sub active' : 'sub'}>
+                                    <li>Cold Weather</li>
+                                    <li>Tech Layers</li>
+                                    <li>Windproof</li>
+                                    <li>Waterproof</li>
+                                    <li>Wicking</li>
+                                </div>
+                            </li>
                             <li>Best sellers</li>
                         </div>
                     </li>
                     <li className='second--nav--item dropdown'>
                         <div className='dropdown--box'>
                             <div><a>FEATURED</a></div>  <div className='icon'
-                            onClick={() => setFourth(!fourth)}><MdKeyboardArrowDown className={fourth ? ' rotate' : ""}/></div>
+                                onClick={() => setFourth(!fourth)}><MdKeyboardArrowDown className={fourth ? ' rotate' : ""} /></div>
                         </div>
                         <div className={!fourth ? 'dropdown--submenu' : 'dropdown--submenu hidden'}>
                             <li>Men's 2022 U.S. Open Championship</li>
@@ -86,7 +168,7 @@ const Second = () => {
                     </li>
                     <li className='second--nav--item dropdown'>
                         <div className='dropdown--box'>
-                            <div><a>FEATURED</a></div>  <div className='icon'  onClick={() => setFive(!five)}><MdKeyboardArrowDown className={five ? ' rotate' : ""} /></div>
+                            <div><a>FEATURED</a></div>  <div className='icon' onClick={() => setFive(!five)}><MdKeyboardArrowDown className={five ? ' rotate' : ""} /></div>
                         </div>
 
                         <div className={!five ? 'dropdown--submenu' : 'dropdown--submenu hidden'}>
@@ -100,8 +182,14 @@ const Second = () => {
                     <li className='second--nav--item'>
                         <a>ZERO+ REWARDS</a>
                     </li>
-
+                    <p className='loginText'>Log in</p>
+                    <div className='contacts'>
+                        <div ><AiOutlineInstagram /></div>
+                        <div ><ImFacebook /></div>
+                        <div ><BsTwitter /></div>
+                    </div>
                 </ul>
+
             </div>
 
         </div>
