@@ -10,56 +10,50 @@ const Navbar = () => {
 
                 </li>
                 <li className='header--navbar_list-item has-submenu list--item'>
-
                     <div className='link'><a href='#'>NEW ARRIVALS</a></div>
-                    <ul className='list--item--submenu'>
+                   
+                    <ul className='list--item--submenu simple--submenu'>
                         <li className='submenu--subitem'><a>Men's new Arrivals</a></li>
                         <li className='submenu--subitem'><a>Ladies new Arrivals</a></li>
                     </ul>
                 </li>
-
-
                 <li className='header--navbar_list-item has-submenu list--item megamenu' >
                     <div className='link'><a href='#'>MENS</a></div>
 
                     <div className='list--item--submenu submenu'>
                         <div className='submenu--items'>
                             <ul className='submenu-item'>
-                                <li className='submenu-item--title'>SHOP BY STYLE</li>
+                                <h3 className='submenu-item--title'>SHOP BY STYLE</h3>
                                 <li>Jackets</li>
                                 <li>Vests</li>
                                 <li>Layers</li>
-                                <li>                            Bottoms
+                                <li>Bottoms
                                 </li>
                                 <li> Accessories</li>
                             </ul>
                             <ul className='submenu-item'>
-                                <li className='submenu-item--title'>SHOP BY STYLE</li>
-                                <li> SHOP BY STYLE</li>
-                                <li>Jackets</li>
-                                <li>Vests</li>
-                                <li>Layers</li>
-                                <li>                            Bottoms
-                                </li>
-                                <li> Accessories</li>
+                                <h3 className='submenu-item--title'>SHOP BY PERFOMANCE</h3>
+                                <li> Cold Weather</li>
+                                <li>Tech Layers</li>
+                                <li>Windproofs</li>
+                                <li>Waterproof</li>
+                                <li>Wicking </li>
                             </ul>
                             <ul className='submenu-item'>
-                                <li className='submenu-item--title'>BEST SELLERS</li>
+                                <h3 className='submenu-item--title'>BEST SELLERS</h3>
 
                             </ul>
                         </div>
 
                     </div>
                 </li>
-
-
                 <li className='header--navbar_list-item has-submenu list--item megamenu'>
                     <div className='link'><a href='#'>WOMENS</a></div>
 
                     <div className='list--item--submenu submenu'>
                         <div className='submenu--items'>
                             <ul className='submenu-item'>
-                                <li className='submenu-item--title'>SHOP BY STYLE</li>
+                                <h3 className='submenu-item--title'>SHOP BY STYLE</h3>
                                 <li>Jackets</li>
                                 <li>Vests</li>
                                 <li>Layers</li>
@@ -68,7 +62,7 @@ const Navbar = () => {
                                 <li> Accessories</li>
                             </ul>
                             <ul className='submenu-item'>
-                                <li className='submenu-item--title'>SHOP BY STYLE</li>
+                                <h3 className='submenu-item--title'>SHOP BY STYLE</h3>
                                 <li> SHOP BY STYLE</li>
                                 <li>Jackets</li>
                                 <li>Vests</li>
@@ -78,7 +72,7 @@ const Navbar = () => {
                                 <li> Accessories</li>
                             </ul>
                             <ul className='submenu-item'>
-                                <li className='submenu-item--title'>BEST SELLERS</li>
+                                <h3 className='submenu-item--title'>BEST SELLERS</h3>
 
                             </ul>
                         </div>
@@ -86,18 +80,16 @@ const Navbar = () => {
                     </div>
 
                 </li>
-
-
                 <li className='header--navbar_list-item has-submenu list--item'>
                     <div className='link'><a href='#'>FEATURED</a></div>
-                    <ul className='list--item--submenu'>
+                    <ul className='list--item--submenu simple--submenu'>
                         <li className='submenu--subitem'><a>Men's 2022 U.S. Open Champinship</a></li>
                         <li className='submenu--subitem'  ><a>Women's 2022 U.S. Open Champinship</a></li>
                     </ul>
                 </li>
                 <li className='header--navbar_list-item has-submenu list--item'>
                     <div className='link'><a href='#'>SALE</a></div>
-                    <ul className='list--item--submenu'>
+                    <ul className='list--item--submenu simple--submenu'>
                         <li className='submenu--subitem' ><a>Men's Sale</a></li>
                         <li className='submenu--subitem'><a>Women's Sale</a></li>
                     </ul>
@@ -109,6 +101,9 @@ const Navbar = () => {
                     <div className='link'><a href='#'>ZERO+ REWARDS</a></div>
                 </li>
             </ul>
+
+
+       
         </div>
     )
 }

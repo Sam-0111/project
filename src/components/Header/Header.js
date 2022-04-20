@@ -1,5 +1,5 @@
 import React from 'react';
-import { RiSearchLine } from 'react-icons/ri';
+import { GoSearch } from 'react-icons/go';
 import img from './logo.webp'
 import { FaRegUser } from "react-icons/fa"
 import { BsCart } from "react-icons/bs"
@@ -7,12 +7,18 @@ import './Header.css'
 import Navbar from '../Navbar/Navbar';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Context } from '../Context/Context';
+import { RiMenu2Line } from 'react-icons/ri'
+import Second from '../Second/Second';
 
 const Header = () => {
 
     const [mobileWindow, setMobileWindow] = useState(false);
+    const [fixedNavbarStatus, setNavbarStatus] = useState((false))
+    const [secondVisible, setVisible] = useState(false)
+
     useEffect(() => {
-        function resize(params) {
+        function resize() {
             let windowWidth = window.innerWidth;
             if (windowWidth <= 767) {
                 setMobileWindow(true)
@@ -20,35 +26,67 @@ const Header = () => {
                 setMobileWindow(false)
             }
         }
+        resize()
         window.addEventListener('resize', resize)
-        
+
     })
     return (
-        <div className='header--main'>
-            <div className='header--main--wrapper'>
-                <div className='header--main--search'>
-                    <RiSearchLine />
+
+        <Context.Provider value={{
+            fixedNavbarStatus, secondVisible, setVisible
+        }}>
+            <div className='header--main'>
+                <div className='header--main--wrapper'>
+                    <div className='header--main--search'>
+
+                        {
+                            mobileWindow ?
+                                <RiMenu2Line
+                                    onClick={()=>{setVisible(true)}}
+                                />
+                                : null
+                        }
+                        {
+                            !mobileWindow ?
+                                <GoSearch />
+                                : null
+                        }
+
+                    </div>
+                    <div className='header--main--logo'>
+                        <img src={img} alt="logo" />
+                    </div>
+                    <div className='header--main--user__buttons'>
+                        <span>
+                            {
+                                !mobileWindow ?
+                                    <FaRegUser />
+                                    : null
+                            }
+                            {
+                                mobileWindow ?
+                                    <GoSearch />
+                                    : null
+                            }
+                        </span>
+                        <span>
+                            <BsCart />
+                        </span>
+                    </div>
                 </div>
-                <div className='header--main--logo'>
-                    <img src={img} alt="logo" />
-                </div>
-                <div className='header--main--user__buttons'>
-                    <span>
-                        <FaRegUser />
-                    </span>
-                    <span>
-                        <BsCart />
-                    </span>
-                </div>
+                {
+                    !mobileWindow ?
+                        <Navbar />
+                        : null
+                }
+                {mobileWindow ?
+                    
+                    <Second /> :
+                    null
+                }
+
             </div>
-            {
-                !mobileWindow ?
-                    <Navbar />
-                    : null
-            }
-
-
-        </div>
+        </Context.Provider>
     )
 }
 
