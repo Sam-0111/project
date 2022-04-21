@@ -5,13 +5,14 @@ const Navbar = () => {
     return (
         <div className='header--navbar'>
             <ul className='header--navbar_list'>
-                <li className='header--navbar_list-item'>
+                <li className='header--navbar_list-item             list--item'>
                     <div className='link'><a href='#'>HOME</a></div>
 
                 </li>
+
                 <li className='header--navbar_list-item has-submenu list--item'>
                     <div className='link'><a href='#'>NEW ARRIVALS</a></div>
-                   
+
                     <ul className='list--item--submenu simple--submenu'>
                         <li className='submenu--subitem'><a>Men's new Arrivals</a></li>
                         <li className='submenu--subitem'><a>Ladies new Arrivals</a></li>
@@ -94,16 +95,16 @@ const Navbar = () => {
                         <li className='submenu--subitem'><a>Women's Sale</a></li>
                     </ul>
                 </li>
-                <li className='header--navbar_list-item list--item'>
+                <li className='header--navbar_list-item             list--item'>
                     <div className='link'><a href='#'>OUR TECHNOLOGY</a></div>
                 </li>
-                <li className='header--navbar_list-item list--item' >
+                <li className='header--navbar_list-item             list--item' >
                     <div className='link'><a href='#'>ZERO+ REWARDS</a></div>
                 </li>
             </ul>
 
 
-       
+
         </div>
     )
 }

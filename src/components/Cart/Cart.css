@@ -1,0 +1,64 @@
+@import url(https://fonts.googleapis.com/css?family=Quantico:regular,italic,700,700italic);
+
+.header__cart {
+    width: 400px;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 1000;
+    padding: 20px 40px;
+    transition: all 0.5s ease-in;
+
+}
+
+.header__cart.active {
+    animation: cart .6s forwards;
+
+}
+
+@keyframes cart {
+    0% {
+        right: -100%;
+    }
+
+    100% {
+        right: 0;
+    }
+}
+
+.cart__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.689);
+    padding: 20px 0;
+}
+
+.cart__top--title {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-family: 'Quantico', sans-serif;
+    font-weight: 600;
+}
+
+.cart__scrollable {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cart__close--btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+}
+
+
+@media (max-width:767px){
+    .header__cart{
+        width: 300px;
+        padding: 0 40px 20px 40px;
+    }
+}

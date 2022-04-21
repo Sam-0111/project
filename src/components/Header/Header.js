@@ -10,12 +10,33 @@ import { useEffect } from 'react';
 import { Context } from '../Context/Context';
 import { RiMenu2Line } from 'react-icons/ri'
 import Second from '../Second/Second';
+import Search from '../Search/Search';
+import Cart from '../Cart/Cart';
 
 const Header = () => {
 
     const [mobileWindow, setMobileWindow] = useState(false);
-    const [fixedNavbarStatus, setNavbarStatus] = useState((false))
+    // const [fixedNavbarStatus, setNavbarStatus] = useState(false)
     const [secondVisible, setVisible] = useState(false)
+    const [searchVisible, setSearchVisible] = useState(false)
+    const [cartVisible, setCartVisible] = useState(false)
+
+
+
+
+    const [headerFixed, setHeaderFixed] = useState(false)
+
+    useEffect(() => {
+       window.addEventListener('scroll' , (e)=>{
+            if(window.scrollY >= 100){
+                setHeaderFixed(true)
+            }else{
+                setHeaderFixed(false)
+            }
+       })
+        
+    })
+
 
     useEffect(() => {
         function resize() {
@@ -33,22 +54,24 @@ const Header = () => {
     return (
 
         <Context.Provider value={{
-            fixedNavbarStatus, secondVisible, setVisible
+            setCartVisible, cartVisible, secondVisible, setVisible, searchVisible, setSearchVisible
         }}>
-            <div className='header--main'>
+            <div className={headerFixed ? 'header--main header--fixed ' : ''}>
                 <div className='header--main--wrapper'>
                     <div className='header--main--search'>
 
                         {
                             mobileWindow ?
                                 <RiMenu2Line
-                                    onClick={()=>{setVisible(true)}}
+                                    onClick={() => { setVisible(true) }}
                                 />
                                 : null
                         }
                         {
                             !mobileWindow ?
-                                <GoSearch />
+                                <GoSearch
+                                    onClick={() => setSearchVisible(true)}
+                                />
                                 : null
                         }
 
@@ -70,7 +93,10 @@ const Header = () => {
                             }
                         </span>
                         <span>
-                            <BsCart />
+                            <BsCart
+                                onClick={() => {
+                                    setCartVisible(true)
+                                }} />
                         </span>
                     </div>
                 </div>
@@ -80,12 +106,15 @@ const Header = () => {
                         : null
                 }
                 {mobileWindow ?
-                    
+
                     <Second /> :
                     null
                 }
 
             </div>
+            <Search />
+            <Cart />
+
         </Context.Provider>
     )
 }
