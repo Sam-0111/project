@@ -15,7 +15,7 @@
 }
 
 .second--navbar.active {
-    animation: visible 0.2s forwards linear;
+    animation: visible 0.5s forwards linear;
 }
 
 @keyframes visible {

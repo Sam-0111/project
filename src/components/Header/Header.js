@@ -1,6 +1,7 @@
 import React from 'react';
 import { GoSearch } from 'react-icons/go';
 import img from './logo.webp'
+import imgBlack from './logo-black.webp'
 import { FaRegUser } from "react-icons/fa"
 import { BsCart } from "react-icons/bs"
 import './Header.css'
@@ -28,7 +29,7 @@ const Header = () => {
 
     useEffect(() => {
        window.addEventListener('scroll' , (e)=>{
-            if(window.scrollY >= 100){
+            if(window.scrollY >= 300){
                 setHeaderFixed(true)
             }else{
                 setHeaderFixed(false)
@@ -77,7 +78,12 @@ const Header = () => {
 
                     </div>
                     <div className='header--main--logo'>
+                        {
+                            headerFixed?
+                            <img src={imgBlack} alt="logo" />
+                            :
                         <img src={img} alt="logo" />
+                        }
                     </div>
                     <div className='header--main--user__buttons'>
                         <span>

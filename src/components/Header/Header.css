@@ -1,51 +1,67 @@
-.header--main{
+.header--main {
     width: 100%;
     padding: 0 15px;
-    background-color: rgb(0, 0, 0);
-    padding-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    /* padding-bottom: 10px; */
 }
-
-.header--fixed{
+.header--fixed {
     position: fixed;
     top: -100%;
     left: 0;
     right: 0;
-    animation: fixed-header .8s forwards ;
+    animation: fixed-header .8s forwards;
 }
+
+.header--main.header--fixed .header--main--search {
+    color: black;
+}
+
 @keyframes fixed-header {
-    0%{
+    0% {
         top: -100%;
     }
-    100%{
+
+    100% {
         top: 0;
     }
 }
-.header--main--wrapper{
+
+.header--main--wrapper {
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 20px;
+    margin: 0px;
+    line-height: 50px;
 }
-.header--main--logo{
+
+.header--main--logo {
     padding: 0 0;
 }
 
 .header--main--search,
-.header--main--user__buttons{
-    color: #fff;
+.header--main--user__buttons {
+    color: rgb(255, 255, 255);
     font-size: 25px;
 }
-.header--main--user__buttons > :not(:last-child){
+
+
+.header--main.header--fixed .header--main--user__buttons{
+    color: black;
+}
+
+.header--main--user__buttons> :not(:last-child) {
     margin-right: 25px;
 }
 
-@media screen and (max-width:767px){
-    .header--main--logo > img{
+@media screen and (max-width:767px) {
+    .header--main--logo>img {
         height: 25px;
     }
-    .header--main--wrapper{
+
+    .header--main--wrapper {
         padding: 10px 20px;
     }
 }
@@ -57,10 +73,6 @@
             BODY
 */
 
-body{
+body {
     padding-bottom: 5000px;
 }
-
-
-
-
